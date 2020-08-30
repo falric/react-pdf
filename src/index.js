@@ -64,8 +64,13 @@ const pdf = ({ initialValue, onChange }) => {
 
   if (initialValue) updateContainer(initialValue);
 
+  const getLang = () => {
+    const { document } = container;
+    return document.props ? document.props.lang : 'en-US';
+  };
+
   const render = async () => {
-    const ctx = new PDFDocument({ autoFirstPage: false });
+    const ctx = new PDFDocument({ autoFirstPage: false, lang: getLang() });
 
     console.time('layout');
     const layout = await layoutDocument(container.document);
