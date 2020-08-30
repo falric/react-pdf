@@ -10,7 +10,7 @@ import { version } from '../package.json';
 const fontStore = new FontStore();
 
 const pdf = ({ initialValue, onChange }) => {
-  const container = { type: 'ROOT', document: null };
+  const container = { type: 'ROOT', document: null, lang: 'en-US' };
   const PDFRenderer = createRenderer({ onChange });
   const mountNode = PDFRenderer.createContainer(container);
 
@@ -20,8 +20,13 @@ const pdf = ({ initialValue, onChange }) => {
 
   if (initialValue) updateContainer(initialValue);
 
+  const getLang = () => {
+    const { document } = container
+    return document.props ? document.props.lang : null
+  }
+
   const render = async () => {
-    const ctx = new PDFDocument({ autoFirstPage: false });
+    const ctx = new PDFDocument({ autoFirstPage: false, lang: getLang() });
     const layout = await layoutDocument(container.document, fontStore);
 
     return renderPDF(ctx, layout);

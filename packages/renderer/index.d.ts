@@ -26,6 +26,7 @@ declare module '@react-pdf/renderer' {
       keywords?: string;
       creator?: string;
       producer?: string;
+      lang?: string;
       onRender?: (props: OnRenderProps) => any;
     }
 
