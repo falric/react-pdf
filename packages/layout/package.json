@@ -8,8 +8,8 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "jest",
-    "build": "rimraf ./lib && babel src --out-dir lib",
-    "watch": "rimraf ./lib && babel src --out-dir lib --watch"
+    "build": "npx rimraf ./lib && babel src --out-dir lib",
+    "watch": "npx rimraf ./lib && babel src --out-dir lib --watch"
   },
   "dependencies": {
     "@babel/runtime": "^7.6.2",

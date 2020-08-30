@@ -11,8 +11,8 @@
   },
   "scripts": {
     "test": "jest",
-    "build": "rimraf ./lib && rollup -c",
-    "watch": "rimraf ./lib && rollup -c -w"
+    "build": "npx rimraf ./lib && npx rollup -c",
+    "watch": "npx rimraf ./lib && npx rollup -c -w"
   },
   "dependencies": {
     "@react-pdf/png-js": "^1.0.0",
